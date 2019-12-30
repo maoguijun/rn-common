@@ -2,14 +2,29 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 14:57:33
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-29 19:15:07
+ * @LastEditTime : 2019-12-30 11:50:13
  * @FilePath: \demoRnc\screen\index.js
  */
 import React, { Component } from "react";
 import Home from "./home/container";
-import Detail from "./detail";
-import { NativeRouter, Route } from "react-router-native";
+import Search from "./search/container";
+import {
+    Container,
+    Header,
+    Button,
+    Content,
+    ActionSheet,
+    Text,
+} from "native-base";
+import { NativeRouter, Route, Redirect } from "react-router-native";
 import MiniFooterBar from "../components/mini-footerbar";
+
+const routePath = {
+    home: "/home",
+    search: "/search",
+    user: "/user",
+};
+
 class Routers extends Component {
     constructor(props) {
         super(props);
@@ -18,12 +33,24 @@ class Routers extends Component {
     render() {
         return (
             <NativeRouter>
-                <Route exact path="/" component={Home} />
-                <Route path="/Detail" component={Detail} />
-                <MiniFooterBar />
+                <Container>
+                    <Content>
+                        <Redirect to={routePath.home} />
+                        <Route
+                            exact
+                            path={routePath.home}
+                            render={props => <Home {...props} />}
+                        />
+                        <Route
+                            path={routePath.search}
+                            render={props => <Search {...props} />}
+                        />
+                    </Content>
+                    <MiniFooterBar />
+                </Container>
             </NativeRouter>
         );
     }
 }
 
-export default Routers;
+export { Routers as default, routePath };
