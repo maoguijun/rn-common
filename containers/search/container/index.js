@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 14:51:47
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-30 11:36:34
+ * @LastEditTime : 2019-12-31 11:57:23
  * @FilePath: \demoRnc\screen\home\index.js
  */
 import React, { Component } from "react";
@@ -33,7 +33,7 @@ class Search extends Component {
     }
     render() {
         return (
-            <Container style={styles.homeWrap}>
+            <Container style={styles.searchWrap}>
                 <Text>搜索页</Text>
                 <Button onPress={this.goHome}>
                     <Text>回到首页</Text>

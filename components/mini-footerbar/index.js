@@ -2,33 +2,39 @@
  * @Author: maoguijun
  * @Date: 2019-12-29 15:44:41
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-30 11:06:53
+ * @LastEditTime : 2019-12-31 13:39:00
  * @FilePath: \demoRnc\components\mini-footerbar\index.js
  */
 import React, { Component } from "react";
-import { Text, Footer, FooterTab, Button } from "native-base";
-import Icon from "react-native-vector-icons/AntDesign";
+import { Text, Footer, FooterTab, Button, View } from "native-base";
+import Icon from "react-native-vector-icons/iconfont";
 import { withRouter } from "react-router-native";
 import { connect } from "react-redux";
 import { get, bindAll } from "lodash";
-
+import styles from "./index.style";
 const tabbarList = [
     {
-        iconName: "home",
+        iconName: "mini-shouye",
         label: "首页",
         pathReg: /^\/home/,
         path: "/home",
     },
     {
-        iconName: "search1",
-        label: "诗词库",
-        pathReg: /^search/,
+        iconName: "mini-sousuo",
+        label: "发现",
+        pathReg: /^\/search/,
         path: "/search",
     },
     {
-        iconName: "user",
+        iconName: "mini-mn_pengyou",
+        label: "好友",
+        pathReg: /^\/friend/,
+        path: "/friend",
+    },
+    {
+        iconName: "mini-wo",
         label: "我的",
-        pathReg: /^user/,
+        pathReg: /^\/user/,
         path: "/user",
     },
 ];
@@ -61,21 +67,26 @@ class MiniFooterBar extends Component {
                 ...tab,
                 actived: Boolean(tab.pathReg.test(pathname)),
             }))
-            .map(({ iconName, label, path }, index) => (
-                <Button
+            .map(({ iconName, label, path, actived }, index) => (
+                <View
+                    style={[styles.tab, actived && styles.tabActive]}
                     key={path || index}
-                    vertical={true}
-                    onPress={() => {
+                    onTouchEnd={() => {
                         this.jump(path);
                     }}
                 >
-                    <Icon name={iconName} />
-                    <Text>{label}</Text>
-                </Button>
+                    <Icon
+                        name={iconName}
+                        style={[actived && styles.iconActive, styles.icon]}
+                    />
+                    <Text style={[actived && styles.labelActive, styles.label]}>
+                        {label}
+                    </Text>
+                </View>
             ));
         return (
             <Footer>
-                <FooterTab>{tabbars}</FooterTab>
+                <FooterTab style={styles.footerTab}>{tabbars}</FooterTab>
             </Footer>
         );
     }
