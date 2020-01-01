@@ -2,20 +2,13 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 14:57:33
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-30 11:50:13
+ * @LastEditTime : 2020-01-01 15:37:07
  * @FilePath: \demoRnc\screen\index.js
  */
 import React, { Component } from "react";
 import Home from "./home/container";
 import Search from "./search/container";
-import {
-    Container,
-    Header,
-    Button,
-    Content,
-    ActionSheet,
-    Text,
-} from "native-base";
+import { View } from "react-native";
 import { NativeRouter, Route, Redirect } from "react-router-native";
 import MiniFooterBar from "../components/mini-footerbar";
 
@@ -33,8 +26,8 @@ class Routers extends Component {
     render() {
         return (
             <NativeRouter>
-                <Container>
-                    <Content>
+                <View>
+                    <View>
                         <Redirect to={routePath.home} />
                         <Route
                             exact
@@ -45,9 +38,9 @@ class Routers extends Component {
                             path={routePath.search}
                             render={props => <Search {...props} />}
                         />
-                    </Content>
+                    </View>
                     <MiniFooterBar />
-                </Container>
+                </View>
             </NativeRouter>
         );
     }

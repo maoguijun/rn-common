@@ -2,11 +2,11 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 14:51:47
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-30 11:35:08
+ * @LastEditTime : 2020-01-01 15:36:33
  * @FilePath: \demoRnc\screen\home\index.js
  */
 import React, { Component } from "react";
-import { Container, Header, Button, Text } from "native-base";
+import { Text, View } from "react-native";
 import styles from "./index.styles";
 import { connect } from "react-redux";
 import { get, bindAll } from "lodash";
@@ -28,9 +28,9 @@ class HomeScreen extends Component {
     }
     render() {
         return (
-            <Container style={styles.homeWrap}>
+            <View style={styles.homeWrap}>
                 <Text>首页</Text>
-            </Container>
+            </View>
         );
     }
 }

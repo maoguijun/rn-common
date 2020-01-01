@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 11:36:21
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-31 13:13:56
+ * @LastEditTime : 2020-01-01 15:33:29
  * @FilePath: \demoRnc\App.js
  */
 /**
@@ -14,7 +14,6 @@
  */
 
 import React from "react";
-import { Container, Text, Footer, FooterTab, Button } from "native-base";
 import {
     SafeAreaView,
     StyleSheet,
@@ -37,7 +36,7 @@ class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Container>
+                <View>
                     <StatusBar
                         animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden
                         hidden={false} //是否隐藏状态栏。
@@ -46,7 +45,7 @@ class App extends React.Component {
                         barStyle={"dark-content"} // enum('default', 'light-content', 'dark-content')
                     />
                     <Routers />
-                </Container>
+                </View>
             </Provider>
         );
     }

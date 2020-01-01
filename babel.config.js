@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 11:36:21
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-30 11:59:53
+ * @LastEditTime : 2020-01-01 15:24:00
  * @FilePath: \demoRnc\babel.config.js
  */
 module.exports = {
@@ -18,5 +18,6 @@ module.exports = {
         "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-transform-async-to-generator",
         "@babel/plugin-proposal-export-default-from",
+        ["import", { libraryName: "@ant-design/react-native" }],
     ],
 };

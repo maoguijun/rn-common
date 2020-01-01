@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 14:51:47
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-31 11:57:23
+ * @LastEditTime : 2020-01-01 15:37:41
  * @FilePath: \demoRnc\screen\home\index.js
  */
 import React, { Component } from "react";
@@ -10,7 +10,8 @@ import styles from "./index.styles";
 import { connect } from "react-redux";
 import { get, bindAll } from "lodash";
 import { withRouter } from "react-router-native";
-import { Container, Header, Button, Text } from "native-base";
+import { Button } from "@ant-design/react-native";
+import { View, Text } from "react-native";
 
 const mapState = state => ({
     ...get(state, "home"),
@@ -33,12 +34,12 @@ class Search extends Component {
     }
     render() {
         return (
-            <Container style={styles.searchWrap}>
+            <View style={styles.searchWrap}>
                 <Text>搜索页</Text>
                 <Button onPress={this.goHome}>
                     <Text>回到首页</Text>
                 </Button>
-            </Container>
+            </View>
         );
     }
 }
