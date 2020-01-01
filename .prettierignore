@@ -8,3 +8,4 @@ tests/fixtures/
 /android/**
 /ios/**
 /doc/**
+/local_modules/**
