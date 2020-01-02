@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 11:36:21
  * @LastEditors  : maoguijun
- * @LastEditTime : 2020-01-01 15:33:29
+ * @LastEditTime : 2020-01-02 10:06:05
  * @FilePath: \demoRnc\App.js
  */
 /**
@@ -21,7 +21,6 @@ import {
     View,
     StatusBar,
 } from "react-native";
-import MiniFooterBar from "./components/mini-footerbar";
 import { Provider } from "react-redux";
 
 import Routers from "./containers";

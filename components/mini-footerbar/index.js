@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-29 15:44:41
  * @LastEditors  : maoguijun
- * @LastEditTime : 2020-01-01 15:33:39
+ * @LastEditTime : 2020-01-02 15:12:59
  * @FilePath: \demoRnc\components\mini-footerbar\index.js
  */
 import React, { Component } from "react";
@@ -12,19 +12,23 @@ import Icon from "react-native-vector-icons/iconfont";
 import { withRouter } from "react-router-native";
 import { connect } from "react-redux";
 import { get, bindAll } from "lodash";
-import styles from "./index.style";
+import styles from "./index.styles";
+import Home from "../../containers/home";
+import Search from "../../containers/search";
 const tabbarList = [
     {
         iconName: "mini-shouye",
         label: "首页",
         pathReg: /^\/home/,
         path: "/home",
+        components: <Home />,
     },
     {
         iconName: "mini-sousuo",
         label: "发现",
         pathReg: /^\/search/,
         path: "/search",
+        components: <Search />,
     },
     {
         iconName: "mini-mn_pengyou",
@@ -57,38 +61,39 @@ class MiniFooterBar extends Component {
 
     jump(path) {
         const { history } = this.props;
+        console.log(60, path);
         history.replace(path);
     }
     render() {
-        const { history } = this.props;
+        const { history, style, ...restProps } = this.props;
         const pathname = get(history, ["location", "pathname"]);
-
         const tabbars = tabbarList
             .map(tab => ({
                 ...tab,
                 actived: Boolean(tab.pathReg.test(pathname)),
             }))
-            .map(({ iconName, label, path, actived }, index) => (
+            .map(({ iconName, label, path, actived, component }, index) => (
                 <TabBar.Item
                     style={[styles.tab, actived && styles.tabActive]}
                     key={path || index}
-                    onTouchEnd={() => {
+                    onPress={() => {
                         this.jump(path);
                     }}
+                    title={label}
+                    icon={<Icon name={iconName} />}
+                    selected={actived}
                 >
-                    <Icon
-                        name={iconName}
-                        style={[actived && styles.iconActive, styles.icon]}
-                    />
-                    <Text style={[actived && styles.labelActive, styles.label]}>
-                        {label}
-                    </Text>
+                    {component}
                 </TabBar.Item>
             ));
         return (
-            <View>
-                <TabBar style={styles.footerTab}>{tabbars}</TabBar>
-            </View>
+            <TabBar
+                unselectedTintColor="#949494"
+                tintColor="#33A3F4"
+                barTintColor="#fff"
+            >
+                {tabbars}
+            </TabBar>
         );
     }
 }

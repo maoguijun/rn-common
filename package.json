@@ -9,7 +9,8 @@
         "test": "jest",
         "commit": "git-cz",
         "precommit": "lint-staged",
-        "precommit-msg": "echo 'Pre-commit checks.........' && exit 0"
+        "precommit-msg": "echo 'Pre-commit checks.........' && exit 0",
+        "react-devtools": "react-devtools"
     },
     "lint-staged": {
         "*.{js,css,jsx}": [
@@ -69,6 +70,7 @@
         "lint-staged": "^9.4.2",
         "metro-react-native-babel-preset": "^0.57.0",
         "prettier": "^1.18.2",
+        "react-devtools": "^3.6.3",
         "react-test-renderer": "16.9.0"
     },
     "jest": {

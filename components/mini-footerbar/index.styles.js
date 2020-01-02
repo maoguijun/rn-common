@@ -2,7 +2,7 @@
  * @Author: maoguijun
  * @Date: 2019-12-27 14:52:29
  * @LastEditors  : maoguijun
- * @LastEditTime : 2019-12-31 15:23:57
+ * @LastEditTime : 2020-01-02 14:56:55
  * @FilePath: \demoRnc\screen\home\index.styles.js
  */
 import { StyleSheet } from "react-native";
@@ -10,6 +10,9 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     footerTab: {
         backgroundColor: "#fff",
+        position: "absolute",
+        bottom: 0,
+        zIndex: 100,
     },
     tab: {
         padding: 10,
